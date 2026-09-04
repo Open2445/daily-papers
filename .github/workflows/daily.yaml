@@ -1,8 +1,11 @@
 name: Daily Paper
+
 on:
   workflow_dispatch:
   schedule:
-    - cron: "1 18 * * *jobs:
+    - cron: "1 18 * * *"
+
+jobs:
   send:
     runs-on: ubuntu-latest
     steps:
