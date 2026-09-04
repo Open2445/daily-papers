@@ -2,13 +2,18 @@ name: Daily Paper
 on:
   workflow_dispatch:
   schedule:
-    - cron: "1 18 * * *" # runs 00:01 IST dailyjobs:
+    - cron: "1 18 * * *jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: pip install requests
-      - run: python papers.py
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Send paper
+        run: python papers.py
         env:
           TG_TOKEN: ${{ secrets.TG_TOKEN }}
           TG_CHAT: ${{ secrets.TG_CHAT }}
