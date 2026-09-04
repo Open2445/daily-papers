@@ -1,5 +1,6 @@
 name: Daily Paper
 on:
+  workflow_dispatch:
   schedule:
     - cron: "1 18 * * *" # runs 00:01 IST dailyjobs:
   send:
