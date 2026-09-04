@@ -12,7 +12,7 @@ entries = root.findall("a:entry", ns)
 paper = entries[0]
 title = paper.find("a:title", ns).text.strip()
 link = paper.find("a:id", ns).text
-abstract = paper.find("a:", ns).text.strip()[:400]
+abstract = paper.find("a:summary", ns).text.strip()[:400]
 
 msg = f"📄 *Today's Cybersecurity Paper*\n\n*{title}*\n\n{abstract}...\n\n{link}"
 requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage",
